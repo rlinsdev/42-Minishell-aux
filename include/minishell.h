@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 09:54:12 by rlins             #+#    #+#             */
-/*   Updated: 2022/10/28 13:16:14 by rlins            ###   ########.fr       */
+/*   Updated: 2022/10/28 13:32:39 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdio.h> // Printf
 # include <stdlib.h> // Malloc / Free
 # include <fcntl.h> // Open
+# include <unistd.h> // read
 
 /**
  * @brief First method in project.
@@ -53,7 +54,6 @@ void	aux_write();
 
 /**
  * @brief Write 2.
- *
  * @param fd - The file descriptor of where to write the output. You can
  * either use a file descriptor obtained from the open system call, or you
  * can use 0, 1, or 2, to refer to standard input, standard output, or standard
@@ -65,11 +65,17 @@ void	aux_write();
  */
 int	aux_write2(int fd, const void *buf, size_t nbytes);
 
-/**
+/** [Pipex - Generate output file]
  * @brief Open/create a file
  * @return int. (0) It's OK.
+ * @include: <fcntl.h>
  */
 int	aux_open();
+
+
+
+
+
 
 
 #endif

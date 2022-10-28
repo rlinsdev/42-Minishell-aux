@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 09:54:12 by rlins             #+#    #+#             */
-/*   Updated: 2022/10/28 11:04:58 by rlins            ###   ########.fr       */
+/*   Updated: 2022/10/28 11:15:21 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,13 @@ void	aux_printf();
  * @include <stdlib.h>
  */
 char	*aux_malloc();
+
+/**
+ * @brief Simple Free - Free memory from previous allocation
+ * @param str ref Variable to free
+ * @include <stdlib.h>
+ */
+void	aux_free(char *str);
 
 
 #endif

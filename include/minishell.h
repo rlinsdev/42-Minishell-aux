@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 09:54:12 by rlins             #+#    #+#             */
-/*   Updated: 2022/10/28 11:15:21 by rlins            ###   ########.fr       */
+/*   Updated: 2022/10/28 11:26:50 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,12 @@ char	*aux_malloc();
  * @include <stdlib.h>
  */
 void	aux_free(char *str);
+
+/**
+ * @brief Simple Write.
+ * @include <unistd.h>
+ */
+void	aux_write();
 
 
 #endif

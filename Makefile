@@ -30,7 +30,8 @@ MAKE_NOPRINT = $(MAKE) --no-print-directory
 
 # Files
 SRC_FILES = minishell.c \
-			aux-printf.c
+			aux-printf.c \
+			aux-malloc.c
 
 SOURCES 	= $(addprefix $(SRCS_PATH), $(SRC_FILES))
 OBJ_FILES 	= $(patsubst %.c, %.o, $(SRC_FILES))

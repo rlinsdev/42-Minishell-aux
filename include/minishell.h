@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 09:54:12 by rlins             #+#    #+#             */
-/*   Updated: 2022/10/28 10:17:44 by rlins            ###   ########.fr       */
+/*   Updated: 2022/10/28 11:04:58 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <libft.h>
 # include <stdio.h> // Printf
+# include <stdlib.h> // Malloc / Free
 
 /**
  * @brief First method in project.
@@ -29,5 +30,12 @@ int		start(int argc, char **argv);
  * @include <stdio.h>
  */
 void	aux_printf();
+
+/**
+ * @brief Simple Malloc - Dynamic memory allocation
+ * @include <stdlib.h>
+ */
+char	*aux_malloc();
+
 
 #endif

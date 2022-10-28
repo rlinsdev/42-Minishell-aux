@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 09:54:12 by rlins             #+#    #+#             */
-/*   Updated: 2022/10/28 11:26:50 by rlins            ###   ########.fr       */
+/*   Updated: 2022/10/28 11:33:52 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,20 @@ void	aux_free(char *str);
  * @include <unistd.h>
  */
 void	aux_write();
+
+/**
+ * @brief Write 2.
+ *
+ * @param fd - The file descriptor of where to write the output. You can
+ * either use a file descriptor obtained from the open system call, or you
+ * can use 0, 1, or 2, to refer to standard input, standard output, or standard
+ * error, respectively.
+ * @param buf - A pointer to a buffer
+ * @param nbytes - The number of bytes to write. If smaller than the provided
+ * buffer, the output is truncated.
+ * @return Nro bytes written. If negative, then error.
+ */
+int	aux_write2(int fd, const void *buf, size_t nbytes);
 
 
 #endif

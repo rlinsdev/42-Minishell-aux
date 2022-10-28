@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 09:54:12 by rlins             #+#    #+#             */
-/*   Updated: 2022/10/28 15:06:56 by rlins            ###   ########.fr       */
+/*   Updated: 2022/10/28 15:59:27 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 # include <libft.h>
 # include <stdio.h> // Printf
-# include <stdlib.h> // Malloc / Free
+# include <stdlib.h> // Malloc, Free
 # include <fcntl.h> // Open
-# include <unistd.h> // read
+# include <unistd.h> // read, execve
 
 /**
  * @brief First method in project.
@@ -25,7 +25,7 @@
  * @param argv Arguments Vector
  * @return int
  */
-int		start(int argc, char **argv);
+int		start(int argc, char **argv, char **envp);
 
 /**
  * @brief Simple Printf - Print and format data in console.
@@ -90,7 +90,13 @@ void aux_read();
  */
 int	aux_access(char *path_cmd);
 
-
+/** [Pipex - Responsible to exec the command.]
+ * @brief Execute a File
+ * @param envp: environment pointer
+ * @param cmd: Command to be executed
+ * @include: <unistd.h>
+ */
+void aux_execve(char **envp, char *cmd);
 
 
 

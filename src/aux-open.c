@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 12:41:21 by rlins             #+#    #+#             */
-/*   Updated: 2022/10/28 13:35:37 by rlins            ###   ########.fr       */
+/*   Updated: 2022/10/28 13:40:09 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	aux_open()
 	int fd = open("out.txt", O_TRUNC | O_CREAT | O_RDWR, 0644);
 	if (fd < 0)
 		return (1);
-	write(fd, "opa!\n", 5);
-	close(fd);
+	size_t n_bytes = write(fd, "opa!\n", 5);
+	int result_close = close(fd);
+	return n_bytes;
 }

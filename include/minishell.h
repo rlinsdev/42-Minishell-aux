@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 09:54:12 by rlins             #+#    #+#             */
-/*   Updated: 2022/10/28 13:32:39 by rlins            ###   ########.fr       */
+/*   Updated: 2022/10/28 13:46:56 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,13 @@ int	aux_write2(int fd, const void *buf, size_t nbytes);
  * @include: <fcntl.h>
  */
 int	aux_open();
+
+
+/**
+ * @brief reads cnt bytes of input into the memory area indicated by buf.
+ * A successful read() updates the access time for the file.
+ */
+void aux_read();
 
 
 

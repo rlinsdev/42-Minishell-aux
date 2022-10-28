@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.c                                        :+:      :+:    :+:   */
+/*   aux-read.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlins <rlins@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/28 09:53:43 by rlins             #+#    #+#             */
-/*   Updated: 2022/10/28 13:47:47 by rlins            ###   ########.fr       */
+/*   Created: 2022/10/28 13:41:48 by rlins             #+#    #+#             */
+/*   Updated: 2022/10/28 13:50:02 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+# include <minishell.h>
 
-#include <minishell.h>
-
-
-int	start(int argc, char **argv)
+void aux_read()
 {
-	aux_printf();
-	char *str = aux_malloc();
-	aux_free(str);
-	aux_write();
-	aux_write2(1, "U-hull!", 7);
-	aux_open();
-	aux_read();
+	int size, fd;
+	char *c = malloc(10 * sizeof(char));
 
+	fd = open("testfile.txt", O_RDONLY);
 
-	return (0);
+	size = read(fd, c, 5);
+	free(c);
+	close(fd);
 }

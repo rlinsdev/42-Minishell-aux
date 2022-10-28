@@ -34,7 +34,8 @@ SRC_FILES = minishell.c \
 			aux-malloc.c \
 			aux-free.c \
 			aux-write.c \
-			aux-open.c
+			aux-open.c \
+			aux-read.c
 
 SOURCES 	= $(addprefix $(SRCS_PATH), $(SRC_FILES))
 OBJ_FILES 	= $(patsubst %.c, %.o, $(SRC_FILES))

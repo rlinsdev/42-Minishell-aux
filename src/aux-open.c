@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 12:41:21 by rlins             #+#    #+#             */
-/*   Updated: 2022/10/28 13:40:09 by rlins            ###   ########.fr       */
+/*   Updated: 2022/10/28 13:48:30 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ int	aux_open()
 		return (1);
 	size_t n_bytes = write(fd, "opa!\n", 5);
 	int result_close = close(fd);
-	return n_bytes;
+	return (n_bytes);
 }

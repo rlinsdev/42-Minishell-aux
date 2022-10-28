@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 09:54:12 by rlins             #+#    #+#             */
-/*   Updated: 2022/10/28 13:46:56 by rlins            ###   ########.fr       */
+/*   Updated: 2022/10/28 15:06:56 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,15 @@ int	aux_open();
 void aux_read();
 
 
+/** [Pipex - Check if command is accessible from the current Path]
+ * @brief Verify if the access is correct to some program / execution
+ * TR command, is available in this path: [/usr/bin/tr]. Access with root in
+ * terminal (sudo su) and try to access this path. You will find the file tr.
+ * This path is not available: [/home/rlins/.asdf/shims/tr]
+ * @return (0) if correct
+ * @include <unistd.h>
+ */
+int	aux_access(char *path_cmd);
 
 
 

@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.c                                        :+:      :+:    :+:   */
+/*   aux-printf.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlins <rlins@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/28 09:53:43 by rlins             #+#    #+#             */
-/*   Updated: 2022/10/28 10:18:06 by rlins            ###   ########.fr       */
+/*   Created: 2022/10/28 10:12:54 by rlins             #+#    #+#             */
+/*   Updated: 2022/10/28 10:32:05 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include <minishell.h>
 
-
-int	start(int argc, char **argv)
+void	aux_printf()
 {
-	aux_printf();
-	return (0);
+	printf("Begin - Printf:\n");
+	printf("hello world\n");
+	printf("End - Printf:\n");
+
+	// Carriage return working
+	printf("\ra:1");
+	printf("\rb:2");
+	printf("\rc:3");
+	printf("\rd:4");
+	printf("\n");
 }

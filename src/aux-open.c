@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.c                                        :+:      :+:    :+:   */
+/*   aux-open.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlins <rlins@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/28 09:53:43 by rlins             #+#    #+#             */
-/*   Updated: 2022/10/28 12:58:06 by rlins            ###   ########.fr       */
+/*   Created: 2022/10/28 12:41:21 by rlins             #+#    #+#             */
+/*   Updated: 2022/10/28 13:12:05 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include <minishell.h>
 
-
-int	start(int argc, char **argv)
+int	aux_open()
 {
-	aux_printf();
-	char *str = aux_malloc();
-	aux_free(str);
-	aux_write();
-	aux_write2(1, "U-hull!", 7);
-	aux_open();
-
-
-	return (0);
+	//O_TRUNC	Initially clear all data from the file.
+	//O_CREAT	If the file does not exist, create it. If the O_CREAT option is
+	// used, then you must include the third parameter.
+	//O_RDWR	Open the file so that it can be read from and written to.
+	int fd = open("out.txt", O_TRUNC | O_CREAT | O_RDWR, 0644);
+	if (fd < 0)
+		return (1);
+	write(fd, "opa!\n", 5);
 }

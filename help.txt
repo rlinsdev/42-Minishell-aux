@@ -5,7 +5,9 @@ rl_replace_line, rl_redisplay, add_history,
 *printf
 *malloc,
 *free,
--write, access, open, read,
+*write
+*open
+-access, read,
 close, fork, wait, waitpid, wait3, wait4, signal,
 sigaction, sigemptyset, sigaddset, kill, exit,
 getcwd, chdir, stat, lstat, fstat, unlink, execve,

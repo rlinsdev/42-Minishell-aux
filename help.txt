@@ -12,20 +12,29 @@ Samples of any of this External Functions available:
 *fork + wait
 *pipe + dup2 + Waitpid
 
-readline, rl_clear_history, rl_on_new_line,
-rl_replace_line, rl_redisplay, add_history,
+-- ReadLine libarry: https://tiswww.case.edu/php/chet/readline/readline.html#index-rl_005fon_005fnew_005fline
+-readline
+-rl_clear_history
+-rl_on_new_line,
+-rl_replace_line,
+-rl_redisplay,
+-add_history,
 
--waitpid, wait3, wait4, signal,
-sigaction, sigemptyset, sigaddset, kill,
+signal
+
+sigaction, sigemptyset, sigaddset
+
+-kill,
 --exit,
 getcwd, chdir, stat, lstat, fstat, unlink,
---dup,
---dup2
---pipe
--opendir
--readdir, closedir,
 --strerror,
 --perror,
+-opendir
+-readdir, closedir,
 -isatty, ttyname, ttyslot, ioctl,
 getenv, tcsetattr, tcgetattr, tgetent, tgetflag,
 tgetnum, tgetstr, tgoto, tputs
+
+wait3,
+wait4
+dup,

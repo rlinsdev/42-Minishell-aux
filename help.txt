@@ -12,6 +12,7 @@ Samples of any of this External Functions available:
 *fork + wait
 *pipe + dup2 + Waitpid
 *signal + kill
+-sigaction
 
 -- ReadLine libarry: https://tiswww.case.edu/php/chet/readline/readline.html#index-rl_005fon_005fnew_005fline
 -readline
@@ -21,7 +22,7 @@ Samples of any of this External Functions available:
 -rl_redisplay,
 -add_history,
 
-sigaction, sigemptyset, sigaddset
+, sigemptyset, sigaddset
 
 --exit,
 getcwd, chdir, stat, lstat, fstat, unlink,

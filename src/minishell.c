@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 09:53:43 by rlins             #+#    #+#             */
-/*   Updated: 2022/10/29 15:11:31 by rlins            ###   ########.fr       */
+/*   Updated: 2022/10/29 15:23:38 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int	start(int argc, char **argv, char **envp)
 	// aux_signal();
 	// aux_signal2();
 	aux_signal3();
+	aux_sigaction();
 
 
 	return (0);

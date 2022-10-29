@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 09:54:12 by rlins             #+#    #+#             */
-/*   Updated: 2022/10/29 15:04:31 by rlins            ###   ########.fr       */
+/*   Updated: 2022/10/29 15:29:29 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,5 +129,13 @@ int	aux_pipe();
 void	aux_signal();
 void	aux_signal2();
 void	aux_signal3();
+
+/**
+ * @brief: Set the disposition for sig to act, and store the old disposition in
+ * oact”. Its return value is 0 or -1, indicating whether the system call errored.
+ * Its return value is 0 or -1, indicating whether the system call errored.
+ * @include: <signal.h>
+ */
+void	aux_sigaction();
 
 #endif

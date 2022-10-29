@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 08:14:02 by rlins             #+#    #+#             */
-/*   Updated: 2022/10/29 08:30:37 by rlins            ###   ########.fr       */
+/*   Updated: 2022/10/29 08:43:54 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,28 @@ void	aux_fork()
 		wait(NULL);
 		printf("This is the main/Parent process: %d\n", pid);
 	}
+}
+
+void	aux_fork2()
+{
+	int	id = fork ();
+
+	int proc = 0;
+
+	// Child?
+	if (id == 0)
+		proc = 1;
+	else
+		proc = 10;
+
+	// Wait ALL the childs, and then, execute parent process
+	if (!id == 0)
+		wait();
+
+	for (int i = proc; i < proc + 9; i++)
+	{
+		printf("%d ", i);
+	}
+	if (id != 0)
+		printf("\n");
 }

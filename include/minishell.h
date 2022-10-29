@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 09:54:12 by rlins             #+#    #+#             */
-/*   Updated: 2022/10/29 08:18:10 by rlins            ###   ########.fr       */
+/*   Updated: 2022/10/29 08:40:56 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,5 +105,7 @@ void aux_execve(char **envp, char *cmd);
  * @include: <unistd.h>
  */
 void	aux_fork();
+
+void	aux_fork2();
 
 #endif

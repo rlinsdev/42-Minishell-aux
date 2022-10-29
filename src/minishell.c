@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 09:53:43 by rlins             #+#    #+#             */
-/*   Updated: 2022/10/28 15:53:05 by rlins            ###   ########.fr       */
+/*   Updated: 2022/10/29 08:27:22 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@ int	start(int argc, char **argv, char **envp)
 	aux_read();
 	aux_access("/home/rlins/.asdf/shims/tr");
 	aux_access("/usr/bin/tr");
-	aux_execve(envp, "/usr/bin/ls");
+	// Comment becaus this will finish all the subsequent execution
+	//aux_execve(envp, "/usr/bin/ls");
+	aux_fork();
 
 
 	return (0);

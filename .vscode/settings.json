@@ -6,6 +6,7 @@
 		"algorithm": "c",
 		"new": "c",
 		"stdio.h": "c",
-		"fcntl.h": "c"
+		"fcntl.h": "c",
+		"atomic": "c"
 	}
 }

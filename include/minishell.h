@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 09:54:12 by rlins             #+#    #+#             */
-/*   Updated: 2022/10/28 15:59:27 by rlins            ###   ########.fr       */
+/*   Updated: 2022/10/29 08:18:10 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,5 +99,11 @@ int	aux_access(char *path_cmd);
 void aux_execve(char **envp, char *cmd);
 
 
+/** [Pipex - Divide the process to execute the command and keep the man process]
+ * @brief: Creates a new process by duplicating the calling process. The New
+ * process is the Child process. The calling is the Parend/main process.
+ * @include: <unistd.h>
+ */
+void	aux_fork();
 
 #endif

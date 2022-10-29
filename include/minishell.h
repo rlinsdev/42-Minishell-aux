@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 09:54:12 by rlins             #+#    #+#             */
-/*   Updated: 2022/10/29 08:40:56 by rlins            ###   ########.fr       */
+/*   Updated: 2022/10/29 10:47:21 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 # include <stdio.h> // Printf
 # include <stdlib.h> // Malloc, Free
 # include <fcntl.h> // Open
-# include <unistd.h> // read, execve
+# include <unistd.h> // read, execve, fork, pipe
+# include <sys/wait.h> // waitpid
 
 /**
  * @brief First method in project.
@@ -107,5 +108,14 @@ void aux_execve(char **envp, char *cmd);
 void	aux_fork();
 
 void	aux_fork2();
+
+/** [Pipex - Output from one to standard input of another]
+ * @brief Is the same a pipe in console. I Will try to apply this command here:
+ * $> ping -c 5 google.com | grep rtt
+ * @include: <unistd.h>
+ * @include: <sys/wait.h> (Waitpid)
+ * @return: (0) if it's OK.
+ */
+int	aux_pipe();
 
 #endif

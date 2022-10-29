@@ -9,14 +9,15 @@ Samples of any of this External Functions available:
 *read
 *access
 *execve
-*fork,
+*fork + wait
+*pipe + dup2 + Waitpid
 
 readline, rl_clear_history, rl_on_new_line,
 rl_replace_line, rl_redisplay, add_history,
 
---wait,
 -waitpid, wait3, wait4, signal,
-sigaction, sigemptyset, sigaddset, kill, exit,
+sigaction, sigemptyset, sigaddset, kill,
+--exit,
 getcwd, chdir, stat, lstat, fstat, unlink,
 --dup,
 --dup2

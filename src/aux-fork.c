@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 08:14:02 by rlins             #+#    #+#             */
-/*   Updated: 2022/10/29 08:43:54 by rlins            ###   ########.fr       */
+/*   Updated: 2022/10/29 10:44:45 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	aux_fork()
 	{
 		printf("This is the Child process: %d\n", pid);
 		// calling ping to test the child and keep going with parent
-		execlp("ping", "ping", "-c", "3", "google.com", NULL);
+		execlp("ping", "ping", "-c", "5", "google.com", NULL);
 	}
 	else
 	{
@@ -48,8 +48,8 @@ void	aux_fork2()
 		proc = 10;
 
 	// Wait ALL the childs, and then, execute parent process
-	if (!id == 0)
-		wait();
+	if (!id == 0) 
+		sleep(1);
 
 	for (int i = proc; i < proc + 9; i++)
 	{

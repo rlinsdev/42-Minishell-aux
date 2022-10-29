@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 09:54:12 by rlins             #+#    #+#             */
-/*   Updated: 2022/10/29 10:47:21 by rlins            ###   ########.fr       */
+/*   Updated: 2022/10/29 15:04:31 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <fcntl.h> // Open
 # include <unistd.h> // read, execve, fork, pipe
 # include <sys/wait.h> // waitpid
+# include <signal.h> // signal
 
 /**
  * @brief First method in project.
@@ -117,5 +118,16 @@ void	aux_fork2();
  * @return: (0) if it's OK.
  */
 int	aux_pipe();
+
+/**
+ * @brief: A signal is an event which is generated to notify a process or
+ * thread that some important situation has arrived. When a process or thread
+ * has received a signal, the process or thread will stop what its doing and
+ * take some action. Signal may be useful for inter-process communication.
+ * @include: <signal.h>
+ */
+void	aux_signal();
+void	aux_signal2();
+void	aux_signal3();
 
 #endif

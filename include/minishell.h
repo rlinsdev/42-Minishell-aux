@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 09:54:12 by rlins             #+#    #+#             */
-/*   Updated: 2022/10/30 16:09:33 by rlins            ###   ########.fr       */
+/*   Updated: 2022/10/30 16:15:47 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,5 +139,12 @@ void	aux_signal3();
  * @include: <signal.h>
  */
 int	aux_sigaction();
+
+/**
+ * @brief https://www.youtube.com/watch?v=jF-1eFhyz1U
+ * @return int
+ */
+int	aux_sigaction2();
+
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 15:21:08 by rlins             #+#    #+#             */
-/*   Updated: 2022/10/30 16:30:45 by rlins            ###   ########.fr       */
+/*   Updated: 2022/10/30 16:35:08 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,12 @@ void handler_sigtstp(int sig)
 
 int	aux_sigaction2()
 {
-	struct sigaction sa;
-	sa.sa_handler = &handler_sigtstp;
-	sa.sa_flags = SA_RESTART;
+	// struct sigaction sa;
+	// sa.sa_handler = &handler_sigtstp;
+	// sa.sa_flags = SA_RESTART;
+	// sigaction(SIGTSTP, &sa, NULL);
 
-	sigaction(SIGTSTP, &sa, NULL);
+	signal(SIGTSTP, &handler_sigtstp);
 
 
 	int x;

@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 09:54:12 by rlins             #+#    #+#             */
-/*   Updated: 2022/10/30 15:39:53 by rlins            ###   ########.fr       */
+/*   Updated: 2022/10/30 16:09:33 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,7 @@ void	aux_fork2();
  */
 int	aux_pipe();
 
-/**
+/** [Deprecated: https://man7.org/linux/man-pages/man2/signal.2.html]
  * @brief: A signal is an event which is generated to notify a process or
  * thread that some important situation has arrived. When a process or thread
  * has received a signal, the process or thread will stop what its doing and

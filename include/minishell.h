@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 09:54:12 by rlins             #+#    #+#             */
-/*   Updated: 2022/10/29 15:29:29 by rlins            ###   ########.fr       */
+/*   Updated: 2022/10/30 15:39:53 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <unistd.h> // read, execve, fork, pipe
 # include <sys/wait.h> // waitpid
 # include <signal.h> // signal
+// # include <stdlib.h>
 
 /**
  * @brief First method in project.
@@ -103,7 +104,7 @@ void aux_execve(char **envp, char *cmd);
 
 /** [Pipex - Divide the process to execute the command and keep the man process]
  * @brief: Creates a new process by duplicating the calling process. The New
- * process is the Child process. The calling is the Parend/main process.
+ * process is the Child process. The calling is the Parent/main process.
  * @include: <unistd.h>
  */
 void	aux_fork();
@@ -132,10 +133,11 @@ void	aux_signal3();
 
 /**
  * @brief: Set the disposition for sig to act, and store the old disposition in
- * oact”. Its return value is 0 or -1, indicating whether the system call errored.
+ * oact”. Its return value is 0 or -1, indicating whether the system call
+ * errored.
  * Its return value is 0 or -1, indicating whether the system call errored.
  * @include: <signal.h>
  */
-void	aux_sigaction();
+int	aux_sigaction();
 
 #endif

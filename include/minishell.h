@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 09:54:12 by rlins             #+#    #+#             */
-/*   Updated: 2022/10/31 11:32:06 by rlins            ###   ########.fr       */
+/*   Updated: 2022/10/31 11:59:46 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,8 +149,12 @@ int	aux_sigaction();
 int	aux_sigaction2();
 
 
-/**
+/** [man opendir / man readdir /  ]
  * @brief
+ * OpenDir - Open Directory
+ * Readdir - Return a pointer to a Dir Ent Structure.
+ * CloseDir - Close Directory open by OpenDir
+ * Take a look in: DirEnt struct
  * @include: <dirent.h> <sys/types.h>
  */
 void	aux_opendir();

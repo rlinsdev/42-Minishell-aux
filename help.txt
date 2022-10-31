@@ -14,26 +14,27 @@ Samples of any of this External Functions available:
 *signal + kill
 	https://www.youtube.com/watch?v=83M5-NPDeWs
 	https://www.youtube.com/watch?v=5We_HtLlAbs
-
--sigaction + kill
+*sigaction + kill
 	https://www.youtube.com/watch?v=jF-1eFhyz1U
+	https://www.youtube.com/watch?v=PErrlOx3LYE
+*opendir + readdir + closedir + exit
+	https://www.youtube.com/watch?v=vbAfIGR_5XM
 
 -- ReadLine libarry: https://tiswww.case.edu/php/chet/readline/readline.html#index-rl_005fon_005fnew_005fline
 -readline
+
 -rl_clear_history
 -rl_on_new_line,
 -rl_replace_line,
 -rl_redisplay,
+
 -add_history,
 
 , sigemptyset, sigaddset
 
---exit,
 getcwd, chdir, stat, lstat, fstat, unlink,
 --strerror,
 --perror,
--opendir
--readdir, closedir,
 -isatty, ttyname, ttyslot, ioctl,
 getenv, tcsetattr, tcgetattr, tgetent, tgetflag,
 tgetnum, tgetstr, tgoto, tputs

@@ -42,7 +42,8 @@ SRC_FILES = minishell.c \
 			aux-pipe.c \
 			aux-signal.c \
 			aux-sigaction.c \
-			aux-sigaction2.c
+			aux-sigaction2.c \
+			aux-opendir.c
 
 SOURCES 	= $(addprefix $(SRCS_PATH), $(SRC_FILES))
 OBJ_FILES 	= $(patsubst %.c, %.o, $(SRC_FILES))

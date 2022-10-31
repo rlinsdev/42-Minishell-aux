@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 09:54:12 by rlins             #+#    #+#             */
-/*   Updated: 2022/10/30 16:15:47 by rlins            ###   ########.fr       */
+/*   Updated: 2022/10/31 11:32:06 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,14 @@
 
 # include <libft.h>
 # include <stdio.h> // Printf
-# include <stdlib.h> // Malloc, Free
+# include <stdlib.h> // Malloc, Free, exit
 # include <fcntl.h> // Open
 # include <unistd.h> // read, execve, fork, pipe
 # include <sys/wait.h> // waitpid
 # include <signal.h> // signal
 // # include <stdlib.h>
+# include <sys/types.h>
+# include <dirent.h>
 
 /**
  * @brief First method in project.
@@ -145,6 +147,14 @@ int	aux_sigaction();
  * @return int
  */
 int	aux_sigaction2();
+
+
+/**
+ * @brief
+ * @include: <dirent.h> <sys/types.h>
+ */
+void	aux_opendir();
+
 
 
 #endif

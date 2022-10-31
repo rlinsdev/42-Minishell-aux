@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 09:54:12 by rlins             #+#    #+#             */
-/*   Updated: 2022/10/31 11:59:46 by rlins            ###   ########.fr       */
+/*   Updated: 2022/10/31 17:34:18 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,6 +158,12 @@ int	aux_sigaction2();
  * @include: <dirent.h> <sys/types.h>
  */
 void	aux_opendir();
+
+/** [https://brennan.io/2015/01/16/write-a-shell-in-c/]
+ * @brief Basic sample of 1 Mini-shell. It's smaller that 42 mini-shell, but
+ * will help to get a general idea of the project
+ */
+void mini_mini_shell();
 
 
 

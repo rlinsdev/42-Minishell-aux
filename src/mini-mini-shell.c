@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 17:29:43 by rlins             #+#    #+#             */
-/*   Updated: 2022/11/01 07:41:48 by rlins            ###   ########.fr       */
+/*   Updated: 2022/11/01 07:58:49 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 static void	lsh_loop();
 static char *lsh_read_line();
+static char *lsh_read_line2();
 static char **lsh_split_line(char *line);
 static int lsh_execute(char **args);
 static void check_buffer_error(char *buffer);
@@ -34,7 +35,8 @@ static void	lsh_loop()
 	do {
 		printf("> ");
 
-		line = lsh_read_line();
+		// line = lsh_read_line();
+		line = lsh_read_line2();
 		args = lsh_split_line(line);
 		status = lsh_execute(args);
 
@@ -51,6 +53,24 @@ static void check_buffer_error(char *buffer)
 		fprintf(stderr, "Allocation error \n");
 		exit(EXIT_FAILURE);
 	}
+}
+
+static char *lsh_read_line2()
+{
+	char *line = NULL;
+	ssize_t bufsize = 0;
+
+	if (getline(&line, &bufsize, stdin) == -1)
+	{
+		if (feof(stdin))
+			exit(EXIT_SUCCESS);
+		else
+		{
+			perror("Readline");
+			exit(EXIT_FAILURE);
+		}
+	}
+	return (line);
 }
 
 static char *lsh_read_line()

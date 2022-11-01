@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 17:29:43 by rlins             #+#    #+#             */
-/*   Updated: 2022/11/01 08:20:36 by rlins            ###   ########.fr       */
+/*   Updated: 2022/11/01 08:43:32 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ static char *lsh_read_line2();
 static char **lsh_split_line(char *line);
 static int lsh_execute(char **args);
 static void check_malloc_error(char *buffer);
+static int lsh_launch(char **args);
 
 
 void mini_mini_shell()
@@ -80,7 +81,7 @@ static char **lsh_split_line(char *line)
 	char *token;
 	char **tokens = malloc(bufsize * sizeof(char*));
 
-	check_malloc_error(tokens);
+	check_malloc_error(*tokens);
 
 	token = strtok(line, TOK_DELIM);
 
@@ -99,6 +100,40 @@ static char **lsh_split_line(char *line)
 	}
 	tokens[position] = NULL;
 	return (tokens);
+}
+
+static int lsh_launch(char **args)
+{
+	pid_t pid, w_pid;
+	int status;
+
+	pid = fork();
+
+	if(pid == 0 )
+	{
+		// Child
+		if (execvp(args[0], args) == -1)
+			perror("lsh");
+		exit(EXIT_FAILURE);
+	}
+	else if (pid < 0)
+	{
+		// Error on forking
+		perror("lsh");
+	}
+	else
+	{
+		// parent process
+		do {
+			w_pid = waitpid(pid, &status, WUNTRACED);
+		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
+	}
+	return (1);
+}
+
+static int lsh_execute(char **args)
+{
+	return (1);
 }
 
 static char *lsh_read_line()

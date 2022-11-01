@@ -6,12 +6,13 @@
 /*   By: rlins <rlins@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 09:54:12 by rlins             #+#    #+#             */
-/*   Updated: 2022/10/31 17:34:18 by rlins            ###   ########.fr       */
+/*   Updated: 2022/10/31 21:06:31 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINISHELL_H
 # define MINISHELL_H
+# define BUFFER_SIZE 1024;
 
 # include <libft.h>
 # include <stdio.h> // Printf

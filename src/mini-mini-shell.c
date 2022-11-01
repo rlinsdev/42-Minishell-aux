@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 17:29:43 by rlins             #+#    #+#             */
-/*   Updated: 2022/11/01 07:58:49 by rlins            ###   ########.fr       */
+/*   Updated: 2022/11/01 08:20:36 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static char *lsh_read_line();
 static char *lsh_read_line2();
 static char **lsh_split_line(char *line);
 static int lsh_execute(char **args);
-static void check_buffer_error(char *buffer);
+static void check_malloc_error(char *buffer);
 
 
 void mini_mini_shell()
@@ -46,7 +46,7 @@ static void	lsh_loop()
 	} while (status);
 }
 
-static void check_buffer_error(char *buffer)
+static void check_malloc_error(char *buffer)
 {
 	if (!buffer)
 	{
@@ -73,6 +73,34 @@ static char *lsh_read_line2()
 	return (line);
 }
 
+static char **lsh_split_line(char *line)
+{
+	int bufsize = TOK_BUFSIZE;
+	int position = 0;
+	char *token;
+	char **tokens = malloc(bufsize * sizeof(char*));
+
+	check_malloc_error(tokens);
+
+	token = strtok(line, TOK_DELIM);
+
+	while (token != NULL)
+	{
+		tokens[position] = token;
+		position++;
+
+		if (position > bufsize)
+		{
+			bufsize += TOK_BUFSIZE;
+			tokens = realloc(tokens, bufsize * sizeof(char *));
+			check_malloc_error(*tokens);
+		}
+		token = strtok(NULL, TOK_DELIM);
+	}
+	tokens[position] = NULL;
+	return (tokens);
+}
+
 static char *lsh_read_line()
 {
 	int bufsize = BUFFER_SIZE;
@@ -80,7 +108,7 @@ static char *lsh_read_line()
 	int c;
 	char *buffer = malloc(sizeof(char) * bufsize);
 
-	check_buffer_error(buffer);
+	check_malloc_error(buffer);
 
 	while (1)
 	{
@@ -101,7 +129,7 @@ static char *lsh_read_line()
 		{
 			bufsize += BUFFER_SIZE;
 			buffer = realloc(buffer, bufsize);
-			check_buffer_error(buffer);
+			check_malloc_error(buffer);
 		}
 	}
 }

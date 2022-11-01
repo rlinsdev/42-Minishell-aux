@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 17:29:43 by rlins             #+#    #+#             */
-/*   Updated: 2022/11/01 09:23:39 by rlins            ###   ########.fr       */
+/*   Updated: 2022/11/01 09:26:37 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,20 +24,20 @@ static int lsh_cd(char **args);
 static int lsh_help(char **args);
 static int lsh_exit(char **args);
 
-char *builting_str[] = {
+char *builtin_str[] = {
 	"cd",
 	"help",
 	"exit"
 };
 
-int (*builting_func[]) (char **) = {
+int (*builtin_func[]) (char **) = {
 	&lsh_cd,
 	&lsh_help,
 	&lsh_exit
 };
 
 int lsh_num_builtins () {
-	return sizeof(builting_str) / sizeof(char *);
+	return sizeof(builtin_str) / sizeof(char *);
 };
 
 
@@ -64,7 +64,7 @@ static int lsh_help(char **args)
 
 	for (int i = 0; i < lsh_num_builtins(); i++)
 	{
-		printf(" %s", builting_str[i]);
+		printf(" %s", builtin_str[i]);
 	}
 	printf("Use the man command for information on other programs.\n");
   	return (1);

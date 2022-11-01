@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 17:29:43 by rlins             #+#    #+#             */
-/*   Updated: 2022/11/01 09:34:57 by rlins            ###   ########.fr       */
+/*   Updated: 2022/11/01 09:46:42 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,12 @@ static int lsh_exit(char **args)
 	return (0);
 }
 
-
+/**
+ * @brief First call of program
+ */
 void mini_mini_shell()
 {
-	printf("yep!");
+	// printf("yep!");
 	lsh_loop();
 }
 
@@ -100,15 +102,6 @@ static void	lsh_loop()
 		free(args);
 
 	} while (status);
-}
-
-static void check_malloc_error(char *buffer)
-{
-	if (!buffer)
-	{
-		fprintf(stderr, "Allocation error \n");
-		exit(EXIT_FAILURE);
-	}
 }
 
 static char *lsh_read_line2()
@@ -136,7 +129,11 @@ static char **lsh_split_line(char *line)
 	char *token;
 	char **tokens = malloc(bufsize * sizeof(char*));
 
-	check_malloc_error(*tokens);
+	if (!tokens)
+	{
+		fprintf(stderr, "Allocation error \n");
+		exit(EXIT_FAILURE);
+	}
 
 	token = strtok(line, TOK_DELIM);
 
@@ -149,7 +146,11 @@ static char **lsh_split_line(char *line)
 		{
 			bufsize += TOK_BUFSIZE;
 			tokens = realloc(tokens, bufsize * sizeof(char *));
-			check_malloc_error(*tokens);
+			if (!tokens)
+			{
+				fprintf(stderr, "Allocation error \n");
+				exit(EXIT_FAILURE);
+			}
 		}
 		token = strtok(NULL, TOK_DELIM);
 	}
@@ -211,7 +212,11 @@ static char *lsh_read_line()
 	int c;
 	char *buffer = malloc(sizeof(char) * bufsize);
 
-	check_malloc_error(buffer);
+	if (!buffer)
+	{
+		fprintf(stderr, "lsh: allocation error\n");
+		exit(EXIT_FAILURE);
+  	}
 
 	while (1)
 	{
@@ -232,7 +237,11 @@ static char *lsh_read_line()
 		{
 			bufsize += BUFFER_SIZE;
 			buffer = realloc(buffer, bufsize);
-			check_malloc_error(buffer);
+			if (!buffer)
+			{
+				fprintf(stderr, "lsh: allocation error\n");
+				exit(EXIT_FAILURE);
+			}
 		}
 	}
 }

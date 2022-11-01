@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 17:29:43 by rlins             #+#    #+#             */
-/*   Updated: 2022/11/01 09:26:37 by rlins            ###   ########.fr       */
+/*   Updated: 2022/11/01 09:34:57 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -188,7 +188,19 @@ static int lsh_launch(char **args)
 
 static int lsh_execute(char **args)
 {
-	return (1);
+	int i;
+
+	if (args[0] == NULL)
+		return (1);
+
+	for (int i = 0; i < lsh_num_builtins(); i++)
+	{
+		if (strcmp(args[0], builtin_str[i]) == 0)
+		{
+			return (*builtin_func[i])(args);
+		}
+	}
+	return lsh_launch(args);
 }
 
 // Obsolete

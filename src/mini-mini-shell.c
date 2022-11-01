@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 17:29:43 by rlins             #+#    #+#             */
-/*   Updated: 2022/11/01 08:43:32 by rlins            ###   ########.fr       */
+/*   Updated: 2022/11/01 09:23:39 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,61 @@ static char **lsh_split_line(char *line);
 static int lsh_execute(char **args);
 static void check_malloc_error(char *buffer);
 static int lsh_launch(char **args);
+
+static int lsh_cd(char **args);
+static int lsh_help(char **args);
+static int lsh_exit(char **args);
+
+char *builting_str[] = {
+	"cd",
+	"help",
+	"exit"
+};
+
+int (*builting_func[]) (char **) = {
+	&lsh_cd,
+	&lsh_help,
+	&lsh_exit
+};
+
+int lsh_num_builtins () {
+	return sizeof(builting_str) / sizeof(char *);
+};
+
+
+static int lsh_cd(char **args)
+{
+	if (args[1] == NULL)
+	{
+		fprintf(stderr, "lsh: expected arguments to \"cd\"\n");
+	}
+	else
+	{
+		if ((chdir(args[1]) != 0))
+			perror("lsh");
+	}
+	return (1);
+}
+
+static int lsh_help(char **args)
+{
+	int i;
+	printf("Mini mini shell SLH\n");
+	printf("Type program names and arguments, and hit enter.\n");
+	printf("The following are built in:\n");
+
+	for (int i = 0; i < lsh_num_builtins(); i++)
+	{
+		printf(" %s", builting_str[i]);
+	}
+	printf("Use the man command for information on other programs.\n");
+  	return (1);
+}
+
+static int lsh_exit(char **args)
+{
+	return (0);
+}
 
 
 void mini_mini_shell()
@@ -136,6 +191,7 @@ static int lsh_execute(char **args)
 	return (1);
 }
 
+// Obsolete
 static char *lsh_read_line()
 {
 	int bufsize = BUFFER_SIZE;

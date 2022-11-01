@@ -24,6 +24,7 @@ Samples of any of this External Functions available:
 	https://www.youtube.com/watch?v=vbAfIGR_5XM
 
 -Mini mini shell - Sample of minishell
+[*perror + *chdir + exit]
 	https://brennan.io/2015/01/16/write-a-shell-in-c/
 
 -- ReadLine libarry: https://tiswww.case.edu/php/chet/readline/readline.html#index-rl_005fon_005fnew_005fline
@@ -38,9 +39,8 @@ Samples of any of this External Functions available:
 
 , sigemptyset, sigaddset
 
-getcwd, chdir, stat, lstat, fstat, unlink,
---strerror,
---perror,
+getcwd, stat, lstat, fstat, unlink,
+--strerror
 -isatty, ttyname, ttyslot, ioctl,
 getenv, tcsetattr, tcgetattr, tgetent, tgetflag,
 tgetnum, tgetstr, tgoto, tputs

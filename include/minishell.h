@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 09:54:12 by rlins             #+#    #+#             */
-/*   Updated: 2022/11/01 09:12:11 by rlins            ###   ########.fr       */
+/*   Updated: 2022/11/03 16:58:49 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@
 // # include <stdlib.h>
 # include <sys/types.h>
 # include <dirent.h>
+
+#include <readline/readline.h> // Readline
+// #include <readline/history.h> // History
 
 /**
  * @brief First method in project.
@@ -168,6 +171,8 @@ void	aux_opendir();
  */
 void mini_mini_shell();
 
+
+void aux_readline();
 
 
 #endif

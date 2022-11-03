@@ -28,6 +28,10 @@ Samples of any of this External Functions available:
 	https://brennan.io/2015/01/16/write-a-shell-in-c/
 
 -- ReadLine libarry: https://tiswww.case.edu/php/chet/readline/readline.html#index-rl_005fon_005fnew_005fline
+
+https://stackoverflow.com/questions/23085076/readline-readline-h-file-not-found
+--sudo apt-get install libreadline-dev
+
 -readline
 
 

@@ -31,6 +31,7 @@ Samples of any of this External Functions available:
 -readline
 
 
+https://www.youtube.com/watch?v=TJzltwv7jJs
 
 -rl_clear_history
 -rl_on_new_line,
@@ -50,3 +51,4 @@ tgetnum, tgetstr, tgoto, tputs
 wait3,
 wait4
 
+(Ctrl + Z - suspend a process)

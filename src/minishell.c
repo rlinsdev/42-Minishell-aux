@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 09:53:43 by rlins             #+#    #+#             */
-/*   Updated: 2022/11/03 17:00:17 by rlins            ###   ########.fr       */
+/*   Updated: 2022/11/03 21:35:58 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,10 @@ int	start(int argc, char **argv, char **envp)
 	aux_sigaction2();
 	aux_opendir();
 	mini_mini_shell();
-	*/
 
 	aux_readline();
+	*/
+	aux_getpwd();
 
 
 	return (EXIT_SUCCESS);

@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 09:54:12 by rlins             #+#    #+#             */
-/*   Updated: 2022/11/03 16:58:49 by rlins            ###   ########.fr       */
+/*   Updated: 2022/11/03 21:41:39 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <stdio.h> // Printf
 # include <stdlib.h> // Malloc, Free, exit
 # include <fcntl.h> // Open
-# include <unistd.h> // read, execve, fork, pipe
+# include <unistd.h> // read, execve, fork, pipe, getcwd
 # include <sys/wait.h> // waitpid
 # include <signal.h> // signal
 // # include <stdlib.h>
@@ -173,6 +173,12 @@ void mini_mini_shell();
 
 
 void aux_readline();
+
+/**
+ * @brief: pwd command in console.
+ * @include: unistd.h
+ */
+void	aux_getpwd();
 
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 09:54:12 by rlins             #+#    #+#             */
-/*   Updated: 2022/11/03 21:41:39 by rlins            ###   ########.fr       */
+/*   Updated: 2022/11/04 08:06:45 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 # include <dirent.h>
 
 #include <readline/readline.h> // Readline
-// #include <readline/history.h> // History
+#include <readline/history.h> // History
 
 /**
  * @brief First method in project.

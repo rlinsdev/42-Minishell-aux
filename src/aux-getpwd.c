@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 21:33:45 by rlins             #+#    #+#             */
-/*   Updated: 2022/11/03 21:39:32 by rlins            ###   ########.fr       */
+/*   Updated: 2022/11/04 08:16:49 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,5 @@ void aux_getpwd()
 	char *pwd = getcwd(NULL, 0);
 
 	printf("%s\n", pwd);
-	free(pwd);
+	// free(pwd);
 }

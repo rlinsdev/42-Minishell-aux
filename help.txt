@@ -31,9 +31,9 @@ Samples of any of this External Functions available:
 
 https://stackoverflow.com/questions/23085076/readline-readline-h-file-not-found
 --sudo apt-get install libreadline-dev
-*readline
-*getcwd (PWD in console)
+*readline + add_history (Must to understand how to retrieve this info)
 
+*getcwd (PWD in console)
 
 https://www.youtube.com/watch?v=TJzltwv7jJs
 
@@ -41,8 +41,6 @@ https://www.youtube.com/watch?v=TJzltwv7jJs
 -rl_on_new_line,
 -rl_replace_line,
 -rl_redisplay,
-
--add_history,
 
 , sigemptyset, sigaddset
 

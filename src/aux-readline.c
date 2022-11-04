@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 16:56:30 by rlins             #+#    #+#             */
-/*   Updated: 2022/11/03 18:19:42 by rlins            ###   ########.fr       */
+/*   Updated: 2022/11/04 08:17:17 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,5 @@ void aux_readline()
 	usr_input = readline("\001\e[5;1;32m\033>>$\001\e[0m\002 ");
 
 	printf("\n%s\n", usr_input);
-
+	add_history(usr_input);
 }

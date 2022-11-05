@@ -54,3 +54,21 @@ wait3,
 wait4
 
 (Ctrl + Z - suspend a process)
+
+*-*-*-*-
+Definitions
+*-*-*-*-
+-Lexer:
+-Parser:
+-HereDoc:
+-
+
+
+*-*-*-*-
+Todos
+*-*-*-*-
+-Structure of project:
+	-Folders
+	-Makefile
+	-General Organization
+-

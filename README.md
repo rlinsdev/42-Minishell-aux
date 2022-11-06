@@ -14,7 +14,7 @@ Project to test and detail all the external functions allowed
 ## Definition
 * Lexer:
 * Parser:
-* HereDoc:
+* HereDoc: TODO: Algo relacionado à escrever / ler arquivo temporário.
 
 
 ## Todo's
@@ -25,20 +25,29 @@ Project to test and detail all the external functions allowed
   * `echo` (and option `-n`)
   * `cd` (with only a relative or absolute path)
   * `pwd` (no options)
-  * `export` (no options)
+  * `export` (no options) - Export  variables in bash
   * `unset` (no options)
   * `env` (no options or arguments)
   * `exit` (with exit number but no other options)
+
 * Pipes: `|` which redirect output from one command to input for the next
+
 * Re-directions:
   * `>` redirects output
   * `>>` redirects output in append mode
   * `<` redirects input
   * `<< DELIMITER` displays a new prompt, reads user input until reaching
   	`DELIMITER`, redirects user input to command input (does not update history)
+
+
 * Environment variables (`$USER` or `$VAR`) that expand to their values.
   * `$?` expands to the exit status of the most recently executed foreground pipeline.
-* signals:
-  * `ctrl-c` displays a new prompt line.
-  * `ctrl-d` exits minishell
-  * `ctrl-\` does nothing
+
+
+* Signals:
+  * `ctrl-c` displays a new prompt line. SIGINT: SIGINT resets the user input
+  prompt to a new blank line.
+  * `ctrl-d` exits minishell.
+  * `ctrl-\` does nothing. SIGQUIT: is ignored.
+
+* Global variable:

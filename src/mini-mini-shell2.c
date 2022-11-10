@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 13:40:34 by rlins             #+#    #+#             */
-/*   Updated: 2022/11/10 14:41:55 by rlins            ###   ########.fr       */
+/*   Updated: 2022/11/10 16:25:01 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@ static int 	process_string(char *str, char **parsed, char **parsed_pipe);
 static int 	parse_pipe(char *str, char **str_piped);
 static void parse_space(char *str, char **parsed);
 static int	own_cmd_handler(char **parsed);
+static void help();
+static void exec_args_piped(char **parsed, char **parsed_pipe);
+static void exec_args(char **parsed);
 
 void mini_mini_shell2()
 {
@@ -41,10 +44,44 @@ void mini_mini_shell2()
 		printDir();
 		if (take_input(input_string))
 			continue;
-		// process
+		/* execFlag -
+		* 0 if there is no command or Builtin command
+		* 1 if a simple command
+		* 2 if including pipe. */
 		execFlag = process_string(input_string, parsed_args, parsed_args_piped);
 
-		exit(EXIT_SUCCESS);
+		if (execFlag == 1)
+			exec_args(parsed_args);
+
+		//exit(EXIT_SUCCESS);
+	}
+
+}
+
+static void exec_args_piped(char **parsed, char **parsed_pipe)
+{
+
+}
+static void exec_args(char **parsed)
+{
+	pid_t pid = fork();
+
+	if (pid == -1)
+	{
+		printf("error on forking");
+		return;
+	}
+	else if (pid == 0)
+	{
+		if (execvp(parsed[0], parsed) < 0)
+			printf("error on execute command");
+		exit(0);
+	}
+	else
+	{
+		// Wait for child
+		wait(NULL);
+		return ;
 	}
 
 }
@@ -145,7 +182,7 @@ static int own_cmd_handler(char **parsed)
 		case 2:
 			chdir(parsed[1]);
 		case 3:
-			openHelp();
+			help();
 			return (1);
 		case 4:
 			username = getenv("USER");
@@ -155,6 +192,11 @@ static int own_cmd_handler(char **parsed)
 			break;
 	}
 	return (0);
+}
+
+static void help()
+{
+	puts("Welcome to the jungle!");
 }
 
 static int parse_pipe(char *str, char **str_piped)

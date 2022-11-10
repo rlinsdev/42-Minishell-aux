@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 13:40:34 by rlins             #+#    #+#             */
-/*   Updated: 2022/11/10 14:27:18 by rlins            ###   ########.fr       */
+/*   Updated: 2022/11/10 14:41:55 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ static int	take_input(char *str);
 static int 	process_string(char *str, char **parsed, char **parsed_pipe);
 static int 	parse_pipe(char *str, char **str_piped);
 static void parse_space(char *str, char **parsed);
+static int	own_cmd_handler(char **parsed);
 
 void mini_mini_shell2()
 {
@@ -104,8 +105,56 @@ static int process_string(char *str, char **parsed, char **parsed_pipe)
 		parse_space(str, parsed);
 	}
 
-	
+	if (own_cmd_handler(parsed))
+	{
 
+
+	}
+}
+
+/**
+ * @brief Execute Builtin commands
+ * @param parsed
+ * @return int
+ */
+static int own_cmd_handler(char **parsed)
+{
+	int nro_cmd = 4, i, switch_own_arg = 0;
+	char *lst_of_nro_cmd[nro_cmd];
+	char *username;
+
+	lst_of_nro_cmd[0] = "exit";
+	lst_of_nro_cmd[1] = "cd";
+	lst_of_nro_cmd[2] = "help";
+	lst_of_nro_cmd[3] = "hello";
+
+	for (i = 0; i < nro_cmd; i++)
+	{
+		if (strcmp(parsed[0], lst_of_nro_cmd[i]) == 0)
+		{
+			switch_own_arg = i + 1;
+			break;
+		}
+	}
+
+	switch (switch_own_arg)
+	{
+		case 1:
+			printf("\nGoodBye\n");
+			exit(0);
+		case 2:
+			chdir(parsed[1]);
+		case 3:
+			openHelp();
+			return (1);
+		case 4:
+			username = getenv("USER");
+			printf("\nHello %s", username);
+			return (1);
+		default:
+			break;
+	}
+	return (0);
 }
 
 static int parse_pipe(char *str, char **str_piped)

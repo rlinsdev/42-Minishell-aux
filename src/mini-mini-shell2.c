@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 13:40:34 by rlins             #+#    #+#             */
-/*   Updated: 2022/11/10 13:59:42 by rlins            ###   ########.fr       */
+/*   Updated: 2022/11/10 14:21:22 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,15 @@
 
 static void init_shell();
 static void printDir();
-
+static int	take_input(char *str);
+static int 	process_string(char *str, char **parsed, char **parsed_pipe);
+static int 	parse_pipe(char *str, char **str_piped);
 
 void mini_mini_shell2()
 {
-	char inputString[MAXCOM];
-	char *parsedArgs[MAXLIST];
+	char input_string[MAXCOM];
+	char *parsed_args[MAXLIST];
+	char *parsed_args_piped[MAXLIST];
 	int execFlag = 0;
 
 	init_shell();
@@ -34,10 +37,33 @@ void mini_mini_shell2()
 	while (1)
 	{
 		printDir();
+		if (take_input(input_string))
+			continue;
+		// process
+		execFlag = process_string(input_string, parsed_args, parsed_args_piped);
 
 		exit(EXIT_SUCCESS);
 	}
 
+}
+
+/**
+ * @brief Function to take input
+ * @param str
+ * @return int
+ */
+static int	take_input(char *str)
+{
+	char	*buf;
+	buf = readline("\n>>> ");
+	if (strlen(buf) != 0)
+	{
+		add_history(buf);
+		strcpy(str, buf);
+		return (0);
+	}
+	else
+		return (1);
 }
 
 /**
@@ -50,6 +76,39 @@ static void printDir()
 	char cwd[1024];
 	getcwd(cwd, sizeof(cwd));
 	printf("\nDir: %s", cwd);
+}
+
+/**
+ * @brief
+ *
+ * @param str
+ * @param parsed
+ * @param parsed_pipe
+ * @return int
+ */
+static int process_string(char *str, char **parsed, char **parsed_pipe)
+{
+	char *str_piped[2];
+	int piped = 0;
+
+	piped = parse_pipe(str, str_piped);
+
+}
+
+static int parse_pipe(char *str, char **str_piped)
+{
+	int i;
+	for (i=0; i<1; i++)
+	{
+		str_piped[i] = strsep(&str, "|");
+		
+		if (str_piped[i] == NULL)
+			break;
+	}
+	if (str_piped[1] == NULL)
+		return (0);
+	else
+		return (1);
 }
 
 /**

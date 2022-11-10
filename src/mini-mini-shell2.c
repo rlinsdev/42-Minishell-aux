@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 13:40:34 by rlins             #+#    #+#             */
-/*   Updated: 2022/11/10 16:49:16 by rlins            ###   ########.fr       */
+/*   Updated: 2022/11/10 17:08:50 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void mini_mini_shell2()
 
 		if (execFlag == 1)
 			exec_args(parsed_args);
-		if (execFlag == 1)
+		if (execFlag == 2)
 			exec_args_piped(parsed_args, parsed_args_piped);
 	}
 	return (0);
@@ -264,17 +264,23 @@ static void help()
 	return ;
 }
 
+/**
+ * @brief ls -l | wc -l
+ * @param str
+ * @param str_piped
+ * @return int
+ */
 static int parse_pipe(char *str, char **str_piped)
 {
 	int i;
-	for (i = 0; i < 1; i++)
+	for (i = 0; i < 2; i++)
 	{
 		str_piped[i] = strsep(&str, "|");
 		if (str_piped[i] == NULL)
 			break;
 	}
 	if (str_piped[1] == NULL)
-		return (0);
+		return (0); // Return (0) if no pipe found
 	else
 		return (1);
 }

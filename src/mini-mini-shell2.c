@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 13:40:34 by rlins             #+#    #+#             */
-/*   Updated: 2022/11/10 14:21:22 by rlins            ###   ########.fr       */
+/*   Updated: 2022/11/10 14:27:18 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ static void printDir();
 static int	take_input(char *str);
 static int 	process_string(char *str, char **parsed, char **parsed_pipe);
 static int 	parse_pipe(char *str, char **str_piped);
+static void parse_space(char *str, char **parsed);
 
 void mini_mini_shell2()
 {
@@ -93,6 +94,18 @@ static int process_string(char *str, char **parsed, char **parsed_pipe)
 
 	piped = parse_pipe(str, str_piped);
 
+	if (piped)
+	{
+		parse_space(str_piped[0], parsed);
+		parse_space(str_piped[1], parsed_pipe);
+	}
+	else
+	{
+		parse_space(str, parsed);
+	}
+
+	
+
 }
 
 static int parse_pipe(char *str, char **str_piped)
@@ -101,7 +114,6 @@ static int parse_pipe(char *str, char **str_piped)
 	for (i=0; i<1; i++)
 	{
 		str_piped[i] = strsep(&str, "|");
-		
 		if (str_piped[i] == NULL)
 			break;
 	}
@@ -110,6 +122,28 @@ static int parse_pipe(char *str, char **str_piped)
 	else
 		return (1);
 }
+
+/**
+ * @brief function for parsing command words
+ * @param str
+ * @param parsed
+*/
+static void parse_space(char *str, char **parsed)
+{
+	int i;
+
+	for (i = 0; i < MAXLIST; i++)
+	{
+		parsed[i] = strsep(&str, " ");
+		if (parsed[i] == NULL)
+			break;
+		if (strlen(parsed[i]) == 0)
+			i--;
+	}
+
+}
+
+
 
 /**
  * @brief Greeting shell in initialization

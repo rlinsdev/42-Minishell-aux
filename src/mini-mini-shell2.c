@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 13:40:34 by rlins             #+#    #+#             */
-/*   Updated: 2022/11/10 16:25:01 by rlins            ###   ########.fr       */
+/*   Updated: 2022/11/10 16:36:23 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,73 @@ void mini_mini_shell2()
 
 }
 
+/**
+ * @brief Piped system command is executed
+ * @param parsed
+ * @param parsed_pipe
+ */
 static void exec_args_piped(char **parsed, char **parsed_pipe)
 {
+	int pipefd [2];
+	pid_t p1, p2;
 
+	if (pipe(pipefd) < 0)
+	{
+		printf("Error on piping\n");
+		return ;
+	}
+	p1 = fork();
+	if (p1 < 0)
+	{
+		printf("Error on forking\n");
+		return ;
+	}
+	if (p1 == 0)
+	{
+		// Child
+		close(pipefd[0]);
+		dup2(pipefd[1], STDOUT_FILENO);
+		close(pipefd[1]);
+
+		if (execvp(parsed[0], parsed) < 0) {
+			printf("\nCould not execute command 1..");
+			exit(0);
+		}
+	}
+	else
+	{
+		// Parent
+		p2 = fork();
+		if (p2 < 0)
+		{
+			printf("Error on Forking\n");
+			return ;
+		}
+		// It only needs to read at the read end
+		if (p2 == 0)
+		{
+			close(pipefd[1]);
+			dup2(pipefd[0], STDIN_FILENO);
+			close(pipefd[0]);
+			if (execvp(parsed_pipe[0], parsed_pipe) < 0)
+			{
+				printf("\nCould not execute command 2..");
+				exit(0);
+			}
+		}
+		else
+		{
+			// Parent waiting 2 child
+			wait(NULL);
+			wait(NULL);
+		}
+	}
 }
+
+/**
+ * @brief System commands is executed
+ * @param parsed
+ */
 static void exec_args(char **parsed)
 {
 	pid_t pid = fork();

@@ -46,7 +46,8 @@ SRC_FILES = minishell.c \
 			aux-opendir.c \
 			mini-mini-shell.c \
 			aux-readline.c \
-			aux-getpwd.c
+			aux-getpwd.c \
+			mini-mini-shell2.c
 
 SOURCES 	= $(addprefix $(SRCS_PATH), $(SRC_FILES))
 OBJ_FILES 	= $(patsubst %.c, %.o, $(SRC_FILES))

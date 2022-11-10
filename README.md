@@ -51,3 +51,6 @@ Project to test and detail all the external functions allowed
   * `ctrl-\` does nothing. SIGQUIT: is ignored.
 
 * Global variable:
+
+## Links
+* <a href="https://www.makeuseof.com/shell-builtin-commands-in-linux/">How to Identify a Shell Builtin Command</a>

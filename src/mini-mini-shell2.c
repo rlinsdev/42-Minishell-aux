@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 13:40:34 by rlins             #+#    #+#             */
-/*   Updated: 2022/11/10 16:36:23 by rlins            ###   ########.fr       */
+/*   Updated: 2022/11/10 16:49:16 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,10 @@ void mini_mini_shell2()
 
 		if (execFlag == 1)
 			exec_args(parsed_args);
-
-		//exit(EXIT_SUCCESS);
+		if (execFlag == 1)
+			exec_args_piped(parsed_args, parsed_args_piped);
 	}
-
+	return (0);
 }
 
 /**
@@ -65,10 +65,10 @@ void mini_mini_shell2()
  */
 static void exec_args_piped(char **parsed, char **parsed_pipe)
 {
-	int pipefd [2];
+	int pipe_fd [2];
 	pid_t p1, p2;
 
-	if (pipe(pipefd) < 0)
+	if (pipe(pipe_fd) < 0)
 	{
 		printf("Error on piping\n");
 		return ;
@@ -82,11 +82,12 @@ static void exec_args_piped(char **parsed, char **parsed_pipe)
 	if (p1 == 0)
 	{
 		// Child
-		close(pipefd[0]);
-		dup2(pipefd[1], STDOUT_FILENO);
-		close(pipefd[1]);
+		close(pipe_fd[0]);
+		dup2(pipe_fd[1], STDOUT_FILENO);
+		close(pipe_fd[1]);
 
-		if (execvp(parsed[0], parsed) < 0) {
+		if (execvp(parsed[0], parsed) < 0)
+		{
 			printf("\nCould not execute command 1..");
 			exit(0);
 		}
@@ -103,9 +104,9 @@ static void exec_args_piped(char **parsed, char **parsed_pipe)
 		// It only needs to read at the read end
 		if (p2 == 0)
 		{
-			close(pipefd[1]);
-			dup2(pipefd[0], STDIN_FILENO);
-			close(pipefd[0]);
+			close(pipe_fd[1]);
+			dup2(pipe_fd[0], STDIN_FILENO);
+			close(pipe_fd[0]);
 			if (execvp(parsed_pipe[0], parsed_pipe) < 0)
 			{
 				printf("\nCould not execute command 2..");
@@ -131,13 +132,13 @@ static void exec_args(char **parsed)
 
 	if (pid == -1)
 	{
-		printf("error on forking");
+		printf("Error on forking...\n");
 		return;
 	}
 	else if (pid == 0)
 	{
 		if (execvp(parsed[0], parsed) < 0)
-			printf("error on execute command");
+			printf("Error on execute command...\n");
 		exit(0);
 	}
 	else
@@ -206,10 +207,9 @@ static int process_string(char *str, char **parsed, char **parsed_pipe)
 	}
 
 	if (own_cmd_handler(parsed))
-	{
-
-
-	}
+		return (0);
+	else
+		return (1 + piped);
 }
 
 /**
@@ -244,6 +244,7 @@ static int own_cmd_handler(char **parsed)
 			exit(0);
 		case 2:
 			chdir(parsed[1]);
+			return (1);
 		case 3:
 			help();
 			return (1);
@@ -260,12 +261,13 @@ static int own_cmd_handler(char **parsed)
 static void help()
 {
 	puts("Welcome to the jungle!");
+	return ;
 }
 
 static int parse_pipe(char *str, char **str_piped)
 {
 	int i;
-	for (i=0; i<1; i++)
+	for (i = 0; i < 1; i++)
 	{
 		str_piped[i] = strsep(&str, "|");
 		if (str_piped[i] == NULL)
@@ -294,10 +296,7 @@ static void parse_space(char *str, char **parsed)
 		if (strlen(parsed[i]) == 0)
 			i--;
 	}
-
 }
-
-
 
 /**
  * @brief Greeting shell in initialization

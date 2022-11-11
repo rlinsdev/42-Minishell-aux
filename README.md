@@ -12,6 +12,7 @@ Project to test and detail all the external functions allowed
 
 
 ## Definition
+* One line definition: A shell is an interface that allows you to interact with the kernel of an operating system.
 * Lexer:
 * Parser:
 * HereDoc: TODO: Algo relacionado à escrever / ler arquivo temporário.

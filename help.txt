@@ -26,6 +26,7 @@ Samples of any of this External Functions available:
 -Mini mini shell - Sample of minishell
 [*perror + *chdir + exit]
 	https://brennan.io/2015/01/16/write-a-shell-in-c/
+	https://levelup.gitconnected.com/what-happens-where-you-type-ls-l-in-a-linux-shell-98ad95430cbf
 
 -- ReadLine libarry: https://tiswww.case.edu/php/chet/readline/readline.html#index-rl_005fon_005fnew_005fline
 

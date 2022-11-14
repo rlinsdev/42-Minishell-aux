@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 09:54:12 by rlins             #+#    #+#             */
-/*   Updated: 2022/11/10 13:41:45 by rlins            ###   ########.fr       */
+/*   Updated: 2022/11/12 12:48:53 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -181,6 +181,6 @@ void aux_readline();
 void	aux_getpwd();
 
 
-void mini_mini_shell2();
+int mini_mini_shell2();
 
 #endif

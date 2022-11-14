@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 13:40:34 by rlins             #+#    #+#             */
-/*   Updated: 2022/11/11 07:44:35 by rlins            ###   ########.fr       */
+/*   Updated: 2022/11/12 12:48:43 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void help();
 static void exec_args_piped(char **parsed, char **parsed_pipe);
 static void exec_args(char **parsed);
 
-void mini_mini_shell2()
+int mini_mini_shell2()
 {
 	char input_string[MAXCOM];
 	char *parsed_args[MAXLIST];

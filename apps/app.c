@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42sp.org.br>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 18:55:06 by rlins             #+#    #+#             */
-/*   Updated: 2022/11/10 17:30:54 by rlins            ###   ########.fr       */
+/*   Updated: 2022/11/12 12:47:34 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,8 @@
  */
 int	main(int argc, char *argv[], char *envp[])
 {
+	char	param[100] = "Ola ventilador"; // 14
+	printf("Orig: %ld\n", strlen(param));
+	printf("Alte: %ld\n", ft_strlen(param));
 	return (start(argc, argv, envp));
 }

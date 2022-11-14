@@ -17,6 +17,7 @@ Samples of any of this External Functions available:
 *signal + kill
 	https://www.youtube.com/watch?v=83M5-NPDeWs
 	https://www.youtube.com/watch?v=5We_HtLlAbs
+	https://www.geeksforgeeks.org/signals-c-language/
 *sigaction + kill
 	https://www.youtube.com/watch?v=jF-1eFhyz1U
 	https://www.youtube.com/watch?v=PErrlOx3LYE
@@ -38,10 +39,15 @@ https://stackoverflow.com/questions/23085076/readline-readline-h-file-not-found
 
 https://www.youtube.com/watch?v=TJzltwv7jJs
 
--rl_clear_history
--rl_on_new_line,
--rl_replace_line,
--rl_redisplay,
+*rl_clear_history
+	Clear history from add_history
+
+
+*rl_on_new_line,
+*rl_replace_line,
+*rl_redisplay,
+	Clear and redisplay the prompt. (Will be called when Ctrl+D in minishell)
+
 
 , sigemptyset, sigaddset
 
